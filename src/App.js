@@ -1,20 +1,34 @@
-import ReportForm from "./components/ReportForm";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="bg-blue-500 text-white p-6 rounded">
-        Hello Tailwind!
-    </div>, 
-    
-    <div className="min-h-screen bg-gray-100">
-      <header className="text-center py-4 bg-blue-700 text-white">
-        <h1 className="text-2xl font-bold">SafeNet Guyana – HSSE Reporting</h1>
-      </header>
-      <main className="p-4">
-        <ReportForm />
-      </main>
-    </div>
-  );
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+
+// Placeholder components for other pages
+function Report() {
+  return <div className="p-6">Report an Incident Page (to be implemented)</div>;
+}
+function SafetyTips() {
+  return <div className="p-6">Safety Tips Page (to be implemented)</div>;
+}
+function AdminPanel() {
+  return <div className="p-6">Admin Panel Page (to be implemented)</div>;
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow bg-gray-50">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/report" element={<Report />} />
+            <Route path="/safety-tips" element={<SafetyTips />} />
+            <Route path="/admin" element={<AdminPanel />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+}
