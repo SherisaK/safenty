@@ -17,6 +17,9 @@ function AdminPanel() {
 
 export default function App() {
   return (
+    <div style={{ padding: '2rem' }}>
+      <h1 style={{ color: 'green' }}>React is working!</h1>
+    </div>
     <Router>
       <div className="flex flex-col min-h-screen">
         <Navbar />
