@@ -2,6 +2,10 @@ import ReportForm from "./components/ReportForm";
 
 function App() {
   return (
+    <div className="bg-blue-500 text-white p-6 rounded">
+        Hello Tailwind!
+    </div>, 
+    
     <div className="min-h-screen bg-gray-100">
       <header className="text-center py-4 bg-blue-700 text-white">
         <h1 className="text-2xl font-bold">SafeNet Guyana – HSSE Reporting</h1>
