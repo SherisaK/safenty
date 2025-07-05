@@ -1,18 +1,21 @@
+// src/pages/UploadSafetyTip.jsx
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// Flyer image paths — these must be placed inside "public/flyers/"
 const flyers = [
   {
     id: 1,
     title: "Hazard Safety Flyer",
-    imgUrl: "\public\flyers\hazard.png",
+    imgUrl: "/flyers/hazard.png",
     description: "Important hazard safety protocols you should follow.",
   },
   {
     id: 2,
     title: "PPE Safety Flyer",
     imgUrl: "/flyers/ppe.png",
-    description: "PPE",
+    description: "PPE usage and importance.",
   },
   {
     id: 3,
@@ -20,20 +23,18 @@ const flyers = [
     imgUrl: "/flyers/stressmanag.png",
     description: "General workplace stress management tips.",
   },
-  // add more flyer objects with images and descriptions as needed
 ];
 
-export default function SafetyTips() {
+export default function UploadSafetyTip() {
   const [selectedFlyer, setSelectedFlyer] = useState(null);
   const navigate = useNavigate();
 
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-8">
-      {/* Header */}
       <h1 className="text-4xl font-bold text-center">SAFETY TIPS</h1>
       <hr className="border-gray-300" />
 
-      {/* Carousel */}
+      {/* Flyer carousel */}
       <section>
         <h2 className="text-2xl font-semibold mb-4">Flyers Gallery</h2>
         <div className="flex space-x-4 overflow-x-auto no-scrollbar py-2">
@@ -41,7 +42,7 @@ export default function SafetyTips() {
             <button
               key={id}
               onClick={() => setSelectedFlyer(flyers.find((f) => f.id === id))}
-              className="flex-shrink-0 w-48 h-32 rounded-lg overflow-hidden shadow-lg focus:outline-none border border-transparent hover:border-blue-600 transition"
+              className="flex-shrink-0 w-48 h-32 rounded-lg overflow-hidden shadow-lg border border-transparent hover:border-blue-600 transition"
               aria-label={`View details for ${title}`}
             >
               <img
@@ -54,7 +55,7 @@ export default function SafetyTips() {
           ))}
         </div>
 
-        {/* Modal for flyer details */}
+        {/* Modal */}
         {selectedFlyer && (
           <div
             onClick={() => setSelectedFlyer(null)}
@@ -104,15 +105,14 @@ export default function SafetyTips() {
       {/* Urgent Advisory Section */}
       <section className="bg-red-100 border border-red-400 rounded p-6 flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
         <div className="flex items-center space-x-3 text-red-700 text-lg font-semibold">
-          <span role="img" aria-label="Warning">
-            ⚠️
-          </span>
+          ⚠️
           <p className="max-w-xl">
-            IF ANY OF THESE PROTOCOLS WERE SEEN VIOLATED, REPORT IMMEDIATELY TO YOUR SUPERVISOR OR USE THE FORM
+            IF ANY OF THESE PROTOCOLS WERE SEEN VIOLATED, REPORT IMMEDIATELY TO
+            YOUR SUPERVISOR OR USE THE FORM
           </p>
         </div>
         <button
-          onClick={() => navigate("/report")}
+          onClick={() => navigate("/submit")}
           className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded shadow"
         >
           Report an Incident
