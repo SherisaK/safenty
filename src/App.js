@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import Safety from './pages/UploadSafetyTip';
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
-import ReportIncident from "./pages/ReportIncident";
+import ReportIncident from './components/ReportForm';
 
 // Placeholder components for other pages
 
